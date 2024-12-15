@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Fuel</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        form {
+            display: inline-block;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        .payment-label {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order Fuel</h1>
+    <form action="{{ url_for('order') }}" method="POST">
+        <label for="quantity">Quantity:</label><br>
+        <input type="number" id="quantity" name="quantity" required><br>
+        <label for="address">Delivery Address:</label><br>
+        <input type="text" id="address" name="address" required><br><br>
+        <label for="payment">Payment Method:</label><br>
+        <select id="payment" name="payment" required>
+            <option value="credit_card">Credit Card</option>
+            <option value="debit_card">Debit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="cash">Cash on Delivery</option>
+        </select><br><br>
+        <input type="submit" value="Order" class="button">
+    </form>
+</body>
+</html>

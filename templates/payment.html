@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        form {
+            display: inline-block;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Payment</h1>
+    <form action="{{ url_for('payment', order_id=order.id) }}" method="POST">
+        <p>Order Details:</p>
+        <p>Quantity: {{ order.quantity }}</p>
+        <p>Address: {{ order.address }}</p>
+        <label for="payment_method">Payment Method:</label><br>
+        <select id="payment_method" name="payment_method" required>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Debit Card">Debit Card</option>
+            <option value="PayPal">PayPal</option>
+        </select><br><br>
+        <label for="amount">Amount:</label><br>
+        <input type="text" id="amount" name="amount" required><br><br>
+        <input type="submit" value="Pay Now" class="button">
+    </form>
+</body>
+</html>
